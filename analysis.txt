@@ -1,0 +1,28 @@
+I have assigned the complexity of each individual line of code below 
+with reference to the complexity of Python's built in objects:
+https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
+
+The algorithm iterates a list,O(n), and each iteration must compare
+strings which in python is O(k). Therefore, this algorithm runs in 
+O(n * k), where n = length of a list and k = length of a string.
+
+
+def palindromeFrequencyCount(tokens : [str]) -> [Frequency]:
+     '''
+     Counts the frequency of palindromes in a given list of tokens
+     '''
+     if not tokens: #O(1) check if list is empty  
+          return [] #O(1) instantiate empty list
+
+     tempFreq = defaultdict(int); #O(1) instantiate defaultdict(int)
+     palindromeAccumulator = '' ''; #O(1) instantiate string
+     tokens.append('addOne'); #O(1) append to string
+     
+     for i in range(len(tokens)): #O(n) iterates over list where n = length of list
+          if palindromeAccumulator != palindromeAccumulator[::-1] or palindromeAccumulator == '': #O(k) because copies string and where k = length of shorted string
+               palindromeAccumulator += tokens[i] #O(1) append to string
+          else:
+               tempFreq[palindromeAccumulator] += 1 #O(1) set dict value
+               palindromeAccumulator = tokens[i] #O(1) assign value
+     
+     return Utilities.collateFrequencies(tempFreq) # O(nlog(n)) Assuming python builin sorted function uses timsort
