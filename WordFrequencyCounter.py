@@ -28,10 +28,10 @@ def wordFrequencyCount(tokens : [str]) -> [Frequency]:
           if token != '': #only make a modification to the dictionary if the token is not an empty string
                tempFreq[token] += 1 
      
-     return Utilities.collateFrequencies(tempFreq)
+     return tempFreq
      
-if __name__ == '__main__':
-     Utilities.printFrequencies(wordFrequencyCount(Utilities.tokenizeFile(open('test.txt').read())))
+#if __name__ == '__main__':
+     #Utilities.writeFrequencies(wordFrequencyCount(Utilities.tokenizeFile(open('.txt').read())))
                
            
           

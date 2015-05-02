@@ -33,4 +33,4 @@ def twoGramFrequencyCount(tokens : [str]) -> [Frequency]:
      return Utilities.collateFrequencies(tempFreq)
 
 if __name__ == '__main__':
-     Utilities.printFrequencies(twoGramFrequencyCount(Utilities.tokenizeFile(open('test.txt').read())))
+     Utilities.printFrequencies(twoGramFrequencyCount(Utilities.tokenizeFile(open('xyz.txt').read())))

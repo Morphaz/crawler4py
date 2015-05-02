@@ -11,7 +11,14 @@ Python 34
 import Utilities
 from Frequency import Frequency
 from collections import defaultdict
+import os
 
+def createTestFile():
+     file = open('test.txt', 'w')
+     while os.path.getsize('test.txt') < 100000000:
+          file.write("do geese see god do geese see god abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab  abba bat tab ")
+          print(os.path.getsize('test.txt'))
+     
 
 def palindromeFrequencyCount(tokens : [str]) -> [Frequency]:
      '''
@@ -23,7 +30,7 @@ def palindromeFrequencyCount(tokens : [str]) -> [Frequency]:
      tempFreq = defaultdict(int) 
      palindromeAccumulator = '' '' #The variable accumulates tokens into a string until a palindrome is form  
      tokens.append('addOne') #For the algorithm to work it is necessary that the last token ends a palindrome
-    
+     
      for i in range(len(tokens)): 
           '''
           iterates for the length of the tokens list. Each iteration checks palindromAccumulator and the reverse of palindrome accumulator twice.
@@ -35,10 +42,11 @@ def palindromeFrequencyCount(tokens : [str]) -> [Frequency]:
           else:
                tempFreq[palindromeAccumulator] += 1 # assign value to dict 
                palindromeAccumulator = tokens[i] #reset to palindromeAccumulator to tokens[i]
-     
+          
      return Utilities.collateFrequencies(tempFreq) 
 
 if __name__ == '__main__':
+     #createTestFile()
      Utilities.printFrequencies(palindromeFrequencyCount(Utilities.tokenizeFile(open('test.txt').read())))
                
                

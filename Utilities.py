@@ -12,10 +12,13 @@ from collections import defaultdict
 
 ALPHANUMERICS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-def tokenizeFile(tokens) -> [str]:
+def tokenizeFile(tokens: [str]) -> [str]:
      '''
      This function takes a string argument and uses a map/filter transform on it, returning a alphanumeric, all lower case tokenized list. 
-     '''	
+     '''
+     #for token in str(open("stopWords.txt","r").read()).strip("\n"):
+          #tokens = tokens.replace(token,"")
+          #print(token)
      def alphaNumericFilter(token : str) -> str:
           '''
           This function utilizes lambda to check if a char in a token is alphanumeric, filtering the token and returning a token that is 
@@ -46,7 +49,7 @@ def collateFrequencies(tempFreq : defaultdict()) -> [Frequency]:
           
      return sorted(frequencies, key = freqSort) 
      
-def printFrequencies(frequencies: []) -> print():
+def writeFrequencies(frequencies: []) -> print():
      '''
 	Takes a list of word or 2-gram frequencies and prints the total words and unique words in the list and then the formatted contents
 	of the frequency list
@@ -70,6 +73,7 @@ def printFrequencies(frequencies: []) -> print():
           '''
           iterates over frequencies, printing each Frequency nicely formatted  
           '''
-          print('{0:<20} {1}'.format(str(frequency.getText()),str(frequency.getFrequency())))    
+          with open('CommonWords.txt','a') as f:
+               f.write('{0:<20} {1}\n'.format(str(frequency.getText()),str(frequency.getFrequency()))) 
 
 
